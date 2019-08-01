@@ -178,7 +178,7 @@ input.speak {
 }
 
 .leftDoor {
-  background-color: #aaa;
+  background-color: rgba(255, 242, 242, 0.952);
   left: 0;
   display: -webkit-inline-flex;
   display: -moz-inline-flex;
@@ -190,7 +190,7 @@ input.speak {
 }
 
 .rightDoor {
-  background-color: #444;
+  background-color: rgba(68, 68, 68, 0.973);
   right: 0;
   display: -webkit-inline-flex;
   display: -moz-inline-flex;
