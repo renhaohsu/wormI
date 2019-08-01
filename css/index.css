@@ -159,6 +159,7 @@ input.speak {
 
   position: fixed;
   top: 0;
+  left: 0;
 }
 
 .door {
@@ -171,15 +172,31 @@ input.speak {
   -webkit-transition: width 3s;
   -o-transition: width 3s;
   transition: width 3s;
-  
+  color: darkblue;  
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .leftDoor {
   background-color: #aaa;
   left: 0;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flex;
+  display: -o-inline-flex;
+  display: inline-flex;
+  -ms-align-items: center;
+  align-items: center;
 }
 
 .rightDoor {
   background-color: #444;
   right: 0;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flex;
+  display: -o-inline-flex;
+  display: inline-flex;
+  -ms-align-items: center;
+  align-items: center;
 }
