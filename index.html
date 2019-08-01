@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>養蟲者I</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="./css/sideBar.css">
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-firestore.js"></script>
+</head>
+<body>
+
+<div class="header" id="header"> 
+  <button id="my_btn">＞</button>
+	<h1 class="leftSpace nowTime"> 今天幾號 </h1>
+	
+</div>
+
+<div id="sidebar">
+  <div class="img"></div>
+  <div class="topic">右眼似乎快要</div>
+  <div class="topic">按耐不住了就久違的</div>
+  <div class="topic">試試看使用那個吧</div>
+</div>
+<div id="sidebarRight"></div>
+
+	
+	
+	<br>
+	<p>
+		<span class="leftSpace"> </span>
+	<br>
+	</p>
+	<input class="speak" type="text" name="text" placeholder="歡迎回來主人我是AI養蟲者e號">
+	
+	<p>
+	<br>
+	<a href="#" class="say leftSpace">☝ 摸摸摸摸╰( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ</a>
+	<audio src="" class="speech" hidden></audio>
+
+	</p>
+
+
+	<div class="box">
+		<div class="door leftDoor">我是門</div>
+		<div class="door rightDoor" style="color: white">點擊就會被打開</div>
+	</div>
+	<script>
+		let clicked = false
+		const input = document.querySelector('input[name="text"]');
+		input.addEventListener('click', function(e){
+			sayThisWord('哼哼我的能力終於開花結果了喲感受到來自世界混沌的邀請函以及在黑暗中蠢蠢欲動的勢力了呢右眼似乎快要按耐不住了就久違的試試看使用那個吧希望不會造成太嚴重的傷亡');
+
+			if (!clicked) {input.setAttribute('style', 'background: transparent url("./img/Spr_3e_010.gif") bottom center no-repeat;  background-size: 50%;');
+				clicked = true;
+			} else {
+				input.setAttribute('style', 'background: transparent url("./img/010.gif") bottom center no-repeat;  background-size: 50%;');
+				clicked = false;
+			}
+		});
+
+		async function sayThisWord(word){
+			let words = new SpeechSynthesisUtterance(word);
+			window.speechSynthesis.speak(words)
+		}
+		
+		document.addEventListener('click', function(e){
+			sayThisWord('歡迎回來主人我是AI養蟲者e號').then(sayThisWord('今天的寵從看起來又香又肥很適合配滷肉飯一起吃的樣子'))
+			
+		}, {once: true});
+
+		document.querySelector('.say').addEventListener('click', function(e){
+			e.preventDefault();
+			
+			var text = document.querySelector('input[name="text"]').value;
+			console.log(text);
+			if (text==""){
+				text="哼哼我的能力終於開花結果了喲感受到來自世界混沌的邀請函以及在黑暗中蠢蠢欲動的勢力了呢右眼似乎快要按耐不住了就久違的試試看使用那個吧希望不會造成太嚴重的傷亡"
+			}
+			sayThisWord('歡迎回來主人我是AI養蟲者e號').then(sayThisWord(text))
+			
+		})
+
+		function handleButtonRWD(){
+			let button = document.querySelector('.say')
+			if (window.innerWidth < 680) {				
+				// button.style.color = 'red'
+				button.innerText = "☝ 別摸! 沒有毒"
+			} else {
+				button.innerText = "☝ 別摸! 沒有毒╰( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ"
+			}
+		}
+		
+		// 載入 縮放的事件
+		window.addEventListener("load", handleButtonRWD);
+		window.addEventListener("resize", handleButtonRWD);
+		
+		var body = document.querySelector('body')
+		var box = document.querySelector('.box')
+		var doors = document.getElementsByClassName('door')
+
+
+		var c = 0
+
+		window.addEventListener('click', function(){
+			try {
+				if(!c){
+				doors[0].style.width = '0%';
+				doors[1].style.width = '0%';
+				c = 1;
+				} else {
+					body.removeChild(box)
+				}
+			}
+			catch (e) {
+			    console.log(e) // 把例外物件傳給錯誤處理器
+			}
+			
+		},false)
+	</script>
+<script src="./js/sideBar.js"></script>
+</body>
+</html>
